@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Farrel Berwyn — AI Engineer, Founder & UI/UX Designer. Explore projects, portfolio, and connect on social media." />
+  <meta name="theme-color" content="#0F1117" />
+  <title>Farrel Berwyn — Profile</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Background ambient glow -->
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <main class="main-container" role="main">
+    <article class="profile-card" aria-label="Profile card of Farrel Berwyn">
+
+      <!-- ══════════ Avatar ══════════ -->
+      <header class="profile-header">
+        <div class="avatar-wrapper">
+          <img src="assets/img/FarrelProfile.jpg" alt="Farrel Berwyn's avatar" class="avatar" width="96" height="96"
+            loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-fallback" aria-hidden="true">FB</div>
+        </div>
+
+        <!-- ══════════ Name ══════════ -->
+        <h1 class="profile-name">Farrel Berwyn</h1>
+
+        <!-- ══════════ Subtitle ══════════ -->
+        <p class="profile-subtitle">Entrepreneur • Founder • Developer</p>
+
+        <!-- ══════════ Description ══════════ -->
+        <p class="profile-description">
+          Passionate about building intelligent products at the intersection of
+          AI, design, and entrepreneurship. Tech-entrepreneur, accomplished developer from Indonesia.
+          Actively building a technology ecosystem and a global programming community,
+          and founded startup in the technology sector.
+        </p>
+
+        <!-- ══════════ Social Username ══════════ -->
+        <p class="profile-handle">
+          <svg class="handle-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span>@farrelberwyn</span>
+        </p>
+      </header>
+
+      <!-- ══════════ Tabs (Segmented Control) ══════════ -->
+      <nav class="tabs-nav" role="tablist" aria-label="Content tabs">
+        <div class="tabs-track">
+          <div class="tab-indicator" aria-hidden="true"></div>
+          <button class="tab-btn active" role="tab" id="tab-social" aria-selected="true" aria-controls="panel-social"
+            data-tab="social">Social Media</button>
+          <button class="tab-btn" role="tab" id="tab-projects" aria-selected="false" aria-controls="panel-projects"
+            data-tab="projects">Projects</button>
+          <button class="tab-btn" role="tab" id="tab-portfolio" aria-selected="false" aria-controls="panel-portfolio"
+            data-tab="portfolio">Portfolio</button>
+        </div>
+      </nav>
+
+      <!-- ══════════ Tab Panels ══════════ -->
+      <div class="tab-panels">
+        <section class="tab-panel active" role="tabpanel" id="panel-social" aria-labelledby="tab-social">
+          <ul class="link-list" id="list-social" aria-label="Social media links"></ul>
+        </section>
+
+        <section class="tab-panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects" hidden>
+          <ul class="link-list" id="list-projects" aria-label="Project links"></ul>
+        </section>
+
+        <section class="tab-panel" role="tabpanel" id="panel-portfolio" aria-labelledby="tab-portfolio" hidden>
+          <ul class="link-list" id="list-portfolio" aria-label="Portfolio links"></ul>
+        </section>
+      </div>
+
+      <!-- ══════════ Footer ══════════ -->
+      <footer class="profile-footer" aria-label="Social media footer">
+        <nav class="footer-icons" aria-label="Footer social links" id="footer-icons"></nav>
+      </footer>
+
+    </article>
+  </main>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>
