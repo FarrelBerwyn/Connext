@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farrel Berwyn — AR Profile Card</title>
+  <!-- AR.js and A-Frame libraries -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .ar-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 17, 23, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: #fff;
+      text-align: center;
+      z-index: 1000;
+      font-size: 14px;
+      max-width: 80%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    .ar-overlay a {
+      color: #a855f7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="ar-overlay">
+    Arahkan kamera ke <strong>Hiro Marker</strong> atau klik <a href="index.html">Buka Website Utama</a>
+  </div>
+
+  <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+    <!-- Hiro Marker -->
+    <a-marker preset="hiro">
+      <!-- 3D Card Plane -->
+      <a-plane position="0 0 0" rotation="-90 0 0" width="3" height="2" color="#1A1235" material="opacity: 0.9; transparent: true; roughness: 0.1">
+        
+        <!-- Purple ambient light inside card -->
+        <a-entity light="type: point; color: #a855f7; intensity: 1.5; distance: 5" position="0 0 0.5"></a-entity>
+
+        <!-- Profile Avatar (Using A-Frame image component) -->
+        <a-image src="assets/img/FarrelProfile.jpg" position="-0.9 0.3 0.1" width="0.8" height="0.8" geometry="primitive: plane; buffer: false"></a-image>
+
+        <!-- Text details -->
+        <a-text value="Farrel Berwyn" position="-0.3 0.6 0.1" color="#FFFFFF" width="4.5" font="aileron" wrap-count="20" font-weight="bold"></a-text>
+        <a-text value="AI Engineer & Founder" position="-0.3 0.3 0.1" color="#a855f7" width="3.5" font="aileron" wrap-count="25"></a-text>
+        
+        <!-- Short description -->
+        <a-text value="Building intelligent products at the intersection of AI, design, & tech." 
+                position="-0.9 -0.3 0.1" color="#B8B0D0" width="3" font="aileron" wrap-count="30"></a-text>
+
+        <!-- Tap to Open Link Button -->
+        <a-plane position="0 -0.7 0.1" width="2.4" height="0.3" color="#a855f7" 
+                 class="clickable" redirect-button
+                 event-set__mouseenter="_event: mouseenter; color: #6366F1"
+                 event-set__mouseleave="_event: mouseleave; color: #a855f7">
+          <a-text value="Buka Website" align="center" position="0 0 0.05" color="#FFFFFF" width="3"></a-text>
+        </a-plane>
+      </a-plane>
+    </a-marker>
+
+    <!-- Camera setup with cursor for interaction -->
+    <a-entity camera>
+      <a-cursor fuse="true" fuse-timeout="1500" color="#a855f7"></a-cursor>
+    </a-entity>
+  </a-scene>
+
+  <script>
+    // Component to allow tapping the 3D button in AR to redirect
+    AFRAME.registerComponent('redirect-button', {
+      init: function () {
+        this.el.addEventListener('click', function () {
+          window.location.href = 'index.html';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
